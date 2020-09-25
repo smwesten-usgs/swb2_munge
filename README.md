@@ -12,3 +12,7 @@ The SWB2 code has the ability to dump all state variables and some relevant temp
 
 The `swbstats2` code is aimed at quickly summarizing and extracting values from `swb2` netCDF output files. Basic `swbstats2` operations are discussed [here](swbstats/basic_swbstats2_operation.md).
 
+## Python
+
+Python with the package 'xarray' and 'xarray-spatial' can be used to quickly summarize swb output over various time and spatial scales. 'xarray' allows for straightforward calculation of statistics over one or more dimensions. 'xarray-spatial' adds the ability to perform zonal statistics on the netCDF output. A short example is given [here](jupyter/basic_munging_with_xarray.ipynb).
+

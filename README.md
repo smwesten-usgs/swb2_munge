@@ -6,7 +6,19 @@ SWB2 was designed to output all components of the daily water budget in the form
 
 ## SWB2
 
-The SWB2 code has the ability to dump all state variables and some relevant temporary or internal variables to a comma-spaced variable (csv) file; this output corresponds to a single cell within the model domain and is not filtered or averaged in any way. 
+The SWB2 code has the ability to dump all state variables and some relevant temporary or internal variables to a comma-spaced variable (csv) file; this output corresponds to a single cell within the model domain and is not filtered or averaged in any way. This output may be obtained by adding a statement similar to the following to the SWB control file:
+```
+# EVERGREEN FOREST
+#                          x-coord y-coord
+DUMP_VARIABLES COORDINATES 557220. 451551.
+```
+If you know the row and column numbers of the cell of interest, you may extract the data by adding a statement similar to this to your control file:
+```
+
+# EVERGREEN FOREST
+#              row num    col num
+DUMP_VARIABLES 128        234
+```
 
 ## SWBSTATS2
 

@@ -12,9 +12,9 @@ This causes `swbstats2` to produce both summaries of the *MEAN* and *SUM* of the
 
 `gross_precipitation___MEAN_2012-01-01_to_2013-12-31__173_by_200.nc`
 
-`gross_precipitation___SUM_2012-01-01_to_2013-12-31__173_by_200.nc
-`
-Since the output file covers two calendar years, the output file containing sum of all daily values is a bit hard to interpret, since we commonly report water budget components for monthly or annual date ranges rather than a date range encompassing two complete years.
+`gross_precipitation___SUM_2012-01-01_to_2013-12-31__173_by_200.nc`
+
+Since the output file covers two calendar years, the output file containing sum of all daily values is a bit hard to interpret, since we commonly report water budget components for monthly or annual date ranges rather than a date range encompassing two complete years. Other `swbstats2` option flags (e.g. `--monthly_statistics` or `--annual_statistics`) may be specified to calculate summary output for more appropriate time intervals.
 
 ## Period output
 

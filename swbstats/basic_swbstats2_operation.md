@@ -45,15 +45,42 @@ Note that the output represents summarized values for each month within the date
 
 To obtain output for any arbitrary period, the `--slice` option may be used. For example, to summarize precipitation over the summertime (June, July, August in the Northern Hemisphere), `swbstats2` can be run as follows:
 
-`swbstats2 --slice=2000-06-01,2000-08-31 ../data/gross_precipitation__2012-01-01_to_2013-12-31__173_by_200.nc`,
+`swbstats2 --slice=2012-06-01,2012-08-31 ../data/gross_precipitation__2012-01-01_to_2013-12-31__173_by_200.nc`,
 
 which produces the following output files:
 
-`gross_precipitation__SLICE_STATS--2000-06-01_to_2000-08-31_MEAN_2012-01-01_to_2000-08-31__173_by_200.nc`
-`gross_precipitation__SLICE_STATS--2000-06-01_to_2000-08-31_SUM_2012-01-01_to_2000-08-31__173_by_200.nc`
+`gross_precipitation__SLICE_STATS--2012-06-01_to_2012-08-31_MEAN_2012-01-01_to_2012-08-31__173_by_200.nc`
+`gross_precipitation__SLICE_STATS--2012-06-01_to_2012-08-31_SUM_2012-01-01_to_2012-08-31__173_by_200.nc`
 
 The filename is a bit misleading, in that the first date range refers to the actual range used in the calculation, while the second date range refers to the starting date of the input data file and the end date for all calculations.
 
+## Arc ASCII Grid output
+
+Often one just wants a simple ASCII representation of the SWB-calculated values. SWBSTATS2 can be instructed to output or suppress gridded outut with the following options:
+
+`[ --{no_}netcdf_output ]
+    toggle whether netCDF file is target for gridded output`
+
+`[ --{no_}arcgrid_output ]
+    toggle whether an ASCII Arc Grid is target for gridded output`
+
+So to produce a series of Arc ASCII monthly grids, one could use the following syntax:
+
+`swbstats2 --monthly_statistics --no_netcdf_output --arcgrid_output ../data/gross_precipitation__2012-01-01_to_2013-12-31__173_by_200.nc`
+
+The result will be a set of 48 Arc ASCII files covering the desired months:
+
+
+gross_precipitation__2012-01-01_to_2012-01-31__200_by_173__MEAN__inches.asc
+
+gross_precipitation__2012-01-01_to_2012-01-31__200_by_173__SUM__inches.asc
+
+                ...
+
+gross_precipitation__2013-12-01_to_2013-12-31__200_by_173__MEAN__inches.asc
+
+gross_precipitation__2013-12-01_to_2013-12-31__200_by_173__SUM__inches.asc
+```
 
 ## Zonal statistics
 

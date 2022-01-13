@@ -71,16 +71,13 @@ So to produce a series of Arc ASCII monthly grids, one could use the following s
 The result will be a set of 48 Arc ASCII files covering the desired months:
 
 
-gross_precipitation__2012-01-01_to_2012-01-31__200_by_173__MEAN__inches.asc
-
-gross_precipitation__2012-01-01_to_2012-01-31__200_by_173__SUM__inches.asc
+    gross_precipitation__2012-01-01_to_2012-01-31__200_by_173__MEAN__inches.asc
+    gross_precipitation__2012-01-01_to_2012-01-31__200_by_173__SUM__inches.asc
 
                 ...
 
-gross_precipitation__2013-12-01_to_2013-12-31__200_by_173__MEAN__inches.asc
-
-gross_precipitation__2013-12-01_to_2013-12-31__200_by_173__SUM__inches.asc
-```
+    gross_precipitation__2013-12-01_to_2013-12-31__200_by_173__MEAN__inches.asc
+    gross_precipitation__2013-12-01_to_2013-12-31__200_by_173__SUM__inches.asc
 
 ## Zonal statistics
 

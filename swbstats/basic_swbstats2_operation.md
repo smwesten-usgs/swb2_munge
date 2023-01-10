@@ -2,6 +2,78 @@
 
 `swbstats2` is designed as a simple command-line driven utility to quickly extract and summarize output from a swb2 netCDF output file. There are more elegant ways of doing this by means of R or Python scripts, for example, but `swbstats2` can perform well without any scripting.
 
+Typing `swbstats2` at the command line will result in all current program options being printed. For example:
+```
+D:\bin>swbstats2
+
+-----------------------------------------------------------
+  SWB Statistics Calculator (SWBSTATS2), a companion to
+
+  Soil Water Balance Code version 2.3.1, build 16
+
+     compilation date           : Nov 30 2022 14:30:02
+     compiled on                : Windows
+     Git branch and commit hash : master, c2349cc7
+-----------------------------------------------------------
+
+Compiled with: Intel Fortran version 2021
+Compiler build date:20221019
+
+usage: swbstats2 [options] netcdf_file_name
+
+  options:
+
+  [ --output_prefix= ]
+    text to place in front of the default output filename(s)
+  [ --annual_statistics ]
+    calculate statistics for every calendar year between start and end
+  [ --monthly_statistics ]
+    calculate statistics for every month between start and end
+  [ --daily_statistics ]
+    calculate statistics for every day between start and end
+  [ --annualize_sums ]
+    express sums on an annual basis (e.g. inches per year)
+  [ --report_as_volume ]
+    express statistics as a volume (cubic meters)
+  [ --report_in_meters ]
+    express output statistics in *meters*
+  [ --slice= ]
+    dates over which statistics should be calculated,
+    with start date and end date formatted as yyyy-mm-dd,yyyy-mm-dd
+  [ --stress_period_file= ]
+    comma-delimited file containing stress period start and
+    end date, with header labels and comments starting with'#':
+      id,start_date,end_date
+      #2,1870-01-01,1898-12-31
+      5,1920-01-01,1925-12-31
+      6,1925-01-01,1930-12-31
+  [ --comparison_scale_factor= ]
+    value to multiply comparison grid by before calculating statistics
+  [ --comparison_grid= ]
+    name of real-valued grid to compare SWB output against
+  [ --comparison_period_file= ]
+    comma-delimited file containing comparison period start and
+    end date, with header labels and comments starting with'#':
+      id,start_date,end_date,comparison_grid_filename
+      #2,1870-01-01,1898-12-31,comparison_file_period_2.asc
+      5,1920-01-01,1925-12-31,comparison_file_period_5.asc
+      6,1925-01-01,1930-12-31,comparison_file_period_6.asc
+  [ --zone_grid= ]
+    name of integer-valued grid for which zonal statistics are desired
+  [ --zone_period_file= ]
+    comma-delimited file containing calculation period start and
+    end date, with header labels and comments starting with'#':
+      id,start_date,end_date,zone_grid_filename
+      #2,1870-01-01,1898-12-31,zone_grid_file_period_2.asc
+      5,1920-01-01,1925-12-31,zone_grid_file_period_5.asc
+      6,1925-01-01,1930-12-31,zone_grid_file_period_6.asc
+  [ --{no_}netcdf_output ]
+    toggle whether netCDF file is target for gridded output
+  [ --{no_}arcgrid_output ]
+    toggle whether an ASCII Arc Grid is target for gridded output
+```
+Note that swbstats2 is a pretty basic program; it does not have extensive error-checking with respect to conflicting program options. Several examples are given below that make use of swbstats2 with some of the various command-line arguments.
+
 ## Basic output
 
 The simplest use of `swbstats2` is to calculate the mean and sum of the variable values within a grid over all timesteps for which data exist:
